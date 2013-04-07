@@ -2,7 +2,7 @@
 
 import sys
 import os
-sys.path.append('/home/host/pylib')
+# sys.path.append('/home/host/pylib')
 
 from sqlhelper import sqlhelper
 from pid import PID
