@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-sys.path.append('../pylib')
+sys.path.append('./pylib')
 
 from sqlhelper import sqlhelper
 
