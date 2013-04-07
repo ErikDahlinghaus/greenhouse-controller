@@ -1,0 +1,89 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+	<head>
+		<link rel="stylesheet" type="test/css" href="/static/style.css" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+		<script type="text/javascript">
+			function UpdateTableHeaders() {
+				$("div.divTableWithFloatingHeader").each(function() {
+					var originalHeaderRow = $(".tableFloatingHeaderOriginal", this);
+					var floatingHeaderRow = $(".tableFloatingHeader", this);
+					var offset = $(this).offset();
+					var scrollTop = $(window).scrollTop();
+					if ((scrollTop > offset.top) && (scrollTop < offset.top + $(this).height())) {
+						floatingHeaderRow.css("visibility", "visible");
+						floatingHeaderRow.css("background-color", "white");
+						originalHeaderRow.css("color", "white");
+						originalHeaderRow.css("height", "0px");
+						floatingHeaderRow.css("top", Math.min(scrollTop - offset.top, $(this).height() - floatingHeaderRow.height()) + "px");
+						// Copy cell widths from original header
+						$("th", floatingHeaderRow).each(function(index) {
+							var cellWidth = $("th", originalHeaderRow).eq(index).css('width');
+							$(this).css('width', cellWidth);
+						});
+						// Copy row width from whole table
+						floatingHeaderRow.css("width", $(this).css("width"));
+					}
+					else {
+						floatingHeaderRow.css("visibility", "hidden");
+						floatingHeaderRow.css("top", "0px");
+						originalHeaderRow.css("color", "black");
+						originalHeaderRow.css("height", "22px");
+					}
+				});
+			}
+			$(document).ready(function() {
+				$("table.tableWithFloatingHeader").each(function() {
+					$(this).wrap("<div class=\"divTableWithFloatingHeader\" style=\"position:relative\"></div>");
+					var originalHeaderRow = $("tr:first", this)
+					originalHeaderRow.before(originalHeaderRow.clone());
+					var clonedHeaderRow = $("tr:first", this)
+					clonedHeaderRow.addClass("tableFloatingHeader");
+					clonedHeaderRow.css("position", "absolute");
+					clonedHeaderRow.css("top", "0px");
+					clonedHeaderRow.css("left", $(this).css("margin-left"));
+					clonedHeaderRow.css("visibility", "hidden");
+					originalHeaderRow.addClass("tableFloatingHeaderOriginal");
+				});
+				UpdateTableHeaders();
+				$(window).scroll(UpdateTableHeaders);
+				$(window).resize(UpdateTableHeaders);
+			});
+		</script>
+		
+		<title>
+		{% block title %}
+			Unknown
+		{% endblock title %}
+		</title>
+	</head>
+	
+	
+	<body>
+	
+	
+	<h1>{{ self.title() }}</h1>
+	
+	<div>
+	
+	
+		
+		{% include "nav.html" %}
+		
+	
+		<div id="body">
+		{% block body %}
+		{% endblock body %}
+		</div>
+		
+		
+	</div>
+
+	</body>
+</html>

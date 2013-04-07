@@ -1,0 +1,16 @@
+
+
+
+{% extends 'pagetemplate.html' %}
+		
+		
+{% block title %}
+	{{ links.newpage.title }}
+{% endblock title %}
+		
+{% block body %}
+	<form method="post" action="">
+		<input type="text" size="20" maxlength="20" name="title" value="{{ links.newpage.title }}">
+		<input type="submit" value="Submit">
+	</form>
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends 'pagetemplate.html' %}
+		
+
+{% block title %}
+	{{ links.rawdata.title }}
+{% endblock title %}	
+		
+		
+{% block body %}
+
+			<p id="form">How much time? (Minutes): </p>
+				<form action="" method="get">
+					<p>
+						<input type="text" name="time" id="time" value="{{ time }}" size="5" maxlength="5"/>
+						<input type="submit" value="Set"/>
+					</p>
+				</form>
+
+		<table id="theonlytable" class="tableWithFloatingHeader">
+			
+			<thead>
+			<tr class="staticheader">
+				<th>Timestamp</th>
+				<th>Temperature</th>
+				<th>Humidity</th>
+				<th style="padding-right: 0;">CO2</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			{% for ts, temp, humid, co2 in data %}
+			<tr>
+				<td class="timestampcol">{{ ts }}</td>
+				<td class="datacol">{{ temp }} &#176;F</td>
+				<td class="datacol">{{ humid }}% RH</td>
+				<td class="lastcol">{{ co2 }} PPM</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+			
+		</table>
+	<div id="runtime">
+		<p> Queries took: {{ runtime }} MS</p>
+	</div>
+	
+{% endblock body %}

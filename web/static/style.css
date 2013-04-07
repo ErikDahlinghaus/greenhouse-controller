@@ -1,0 +1,73 @@
+html {
+	font-family: sans-serif;
+}
+a {
+	text-decoration: none;
+	color: blue;
+}
+a:hover {
+	text-decoration: underline;
+}
+#navbar {
+	padding-left: 100px;
+}
+#bodypanel {
+	padding-left: 200px;
+	padding-right: 400px;
+}
+td.timestampcol, td.datacol, th {
+	text-align: left;
+	padding-right: 50px;
+}
+td.lastcol {
+	text-align: left;
+	padding-right: 0px;
+}
+td.nav {
+	width: 100px;
+	text-align: left;
+	padding-right: 30px
+}
+#theonlytable tbody tr:hover {
+	background-color:#F7F8E0 !important;
+}
+#theonlytable tbody tr:nth-child(even) {
+	background-color:#eee;
+}
+#theonlytable tbody tr:nth-child(odd) {
+	background-color:#fff;
+}
+#theonlytable {
+	padding-top: 20px;
+	border-spacing: 0px;
+	min-width: 580px;
+}
+#form , form, input, form p {
+	display: inline;
+}
+body div {
+	margin:0 auto;
+}
+#body {
+	margin-right: 10px;
+    width: 50%;
+    margin: 0px auto;
+	min-width: 600px;
+}
+#nav {
+	float: left;
+	width: 150px;
+}
+
+#runtime {
+	text-align: left;
+	font-size: 12px;
+}
+
+#nav ul li {
+	list-style:none;
+}
+h1 {
+	font-size: 160%;
+	text-align: center;
+}
