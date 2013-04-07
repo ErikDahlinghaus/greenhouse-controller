@@ -2,7 +2,7 @@ import cherrypy
 import os
 
 import sys
-sys.path.append('/home/host/pylib')
+sys.path.append('../pylib')
 from sqlhelper import sqlhelper
 from jinja2 import Environment, FileSystemLoader
 

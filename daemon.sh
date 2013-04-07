@@ -1,8 +1,11 @@
 #!/bin/bash
 
-can_network_start="screen -DmS can2db /home/host/can2db/can2db can0,1:1"
-web_server_start="screen -DmS website /home/host/web/startweb.sh"
-info_gather_start="screen -DmS info python /home/host/daemon.py"
+
+cd /home/host/greenhouse-controller
+
+can_network_start="screen -DmS can2db can2db/can2db can0,1:1"
+web_server_start="screen -DmS website web/startweb.sh"
+info_gather_start="screen -DmS info python daemon.py"
 
 
 can2db_proc="can2db"

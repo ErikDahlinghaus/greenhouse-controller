@@ -43,7 +43,8 @@ class sqlhelper(object):
 
 	def start_connection(self, db):
 		try:
-			self.con = mdb.connect('localhost', 'root', '8Zerahuy', db)
+			self.con = mdb.connect('localhost', 
+'root', 'blickity', db)
 			self.cur = self.con.cursor()
 			self.get_info()
 			

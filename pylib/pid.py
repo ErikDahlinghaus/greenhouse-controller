@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-sys.path.append('/home/host/pylib')
+# sys.path.append('/home/host/pylib')
 import subprocess
 from sqlhelper import sqlhelper
 import socket
