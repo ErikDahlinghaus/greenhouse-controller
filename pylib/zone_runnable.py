@@ -63,15 +63,19 @@ class zoneThread(threading.Thread):
 		self.currentData = data
 		
 	def sendMessage(self, addr, one, two, three):
+		print 'Sending CAN message: ['+str(addr)+' : '+str(one)+' '+str(two)+' '+str(three)+' ]'
 		cmd = ["cansend","can0","-i",str(addr),str(one),str(two),str(three)]
 		with open(os.devnull, "w") as f:
-			subprocess.Popen(cmd, stdout=f).wait()	
+			subprocess.Popen(cmd, stdout=f).wait()
+		print 'Complete'	
 		return
 	
 	def sendRequest(self, addr):
+		print 'Sending request to node '+str(addr)
 		cmd = ['cansend', 'can0', '-i', str(addr), '-r']
 		with open(os.devnull, "w") as f:
-			subprocess.Popen(cmd, stdout=f).wait()	
+			subprocess.Popen(cmd, stdout=f).wait()
+		print 'Complete'	
 		return
 	
 	
