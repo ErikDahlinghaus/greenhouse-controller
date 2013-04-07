@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "controller.py", line 1, in <module>
-    import cherrypy
-ImportError: No module named cherrypy
